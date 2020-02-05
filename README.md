@@ -1,9 +1,11 @@
 # Random User API Consumption
+Application to consume random user endpoint.
+It works by rendering a user fetched from the api. The app has the feature to explore other users or to go back and look at a previously fetched user.
 
-Application with to consume random user endpoint
+Note: To achieve this is required that the users have an unique id. Sometimes the api returns empty strings for user Id. In those cases the response is discarded and a toast mesasge is displayed
 
-It uses the following architectural principles:
-* Layered applciation. There are 3 main layers: Domain, Data, and App
+
+# Arquitecture
 
 ## Domain
 The inner-most layer is domain, with all the business logic. No android classes are use here
