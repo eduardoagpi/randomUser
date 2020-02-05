@@ -26,4 +26,5 @@ The view will send intent actions to the VM and tha VM will post states to be re
 
 
 Working Example. (Takes a while to load)
+----
 ![](randomuser.gif)
