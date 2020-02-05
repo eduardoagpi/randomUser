@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".app.activity.RandomUserActivity">
+
+    <Button android:id="@+id/btnFetchFirstUser"
+        android:text="Get a user info"
+        android:visibility="gone"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
+
+    <ImageView
+        android:id="@+id/imageUser"
+        tools:src="@tools:sample/avatars"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_margin="24dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guide1"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="140dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guide2"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/lblPersonalData"
+        app:layout_constraintStart_toStartOf="@+id/guide1"
+        app:layout_constraintTop_toTopOf="@id/imageUser"
+        style="@style/TextAppearance.AppCompat.Title"
+        android:textColor="#000"
+        android:text="Personal Data"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/lblName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@+id/guide1"
+        app:layout_constraintTop_toBottomOf="@id/lblPersonalData"
+        tools:text="Mr Juan Perez" />
+
+    <TextView
+        android:id="@+id/lblAge"
+        tools:text="5 años"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/lblName"
+        app:layout_constraintStart_toStartOf="@+id/guide1"/>
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/personalInfoBarrier"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="bottom"
+        app:constraint_referenced_ids="imageUser,lblAge"
+        />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideAddress"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="24dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/lblContactData"
+        style="@style/TextAppearance.AppCompat.Title"
+        android:layout_marginTop="32dp"
+        android:textColor="#000"
+        android:text="Contact"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@+id/guideAddress"
+        app:layout_constraintTop_toBottomOf="@id/personalInfoBarrier"/>
+
+    <TextView
+        android:id="@+id/lblMail"
+        tools:text="mail@email.com"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@+id/guideAddress"
+        app:layout_constraintTop_toBottomOf="@id/lblContactData"
+        />
+
+    <TextView
+        android:id="@+id/lblPhone"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        tools:text="Telefonos: 55 13 45 76 (Cellphone), 55497689 (Home)"
+        app:layout_constraintStart_toStartOf="@id/guideAddress"
+        app:layout_constraintEnd_toStartOf="@id/guide2"
+        app:layout_constraintTop_toBottomOf="@id/lblMail"/>
+
+    <TextView
+        android:id="@+id/lblAddress"
+        tools:text="Lakeshore Rd 5125 Australian Capital Territory"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/lblPhone"
+        app:layout_constraintStart_toStartOf="@+id/guideAddress"
+        app:layout_constraintEnd_toStartOf="@id/guide2"/>
+
+    <Button
+        android:id="@+id/btnLocateInMap"
+        android:text="Open In Map"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/lblAddress"
+        android:layout_marginTop="16dp"/>
+
+    <ImageView
+        android:id="@+id/btnNext"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="48dp"
+        android:src="@drawable/next"
+        app:layout_constraintEnd_toStartOf="@+id/guide2"
+        app:layout_constraintTop_toBottomOf="@+id/lblAddress" />
+
+    <ImageView
+        android:id="@+id/btnPrev"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="48dp"
+        android:src="@drawable/next"
+        android:rotation="180"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lblAddress" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/noResultsGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="btnFetchFirstUser"/>
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/userDetailsGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="imageUser,lblName,lblAge,lblAddress,lblMail,lblPhone,btnNext,btnLocateInMap,lblPersonalData,lblContactData"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
